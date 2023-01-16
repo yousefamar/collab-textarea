@@ -1,0 +1,34 @@
+{
+  "name": "collab-textarea",
+  "version": "1.0.0",
+  "description": "A simple Web Component that uses y.js to make a collaboratively editable textareas",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yousefamar/collab-textarea.git"
+  },
+  "keywords": [
+    "textarea",
+    "yjs",
+    "collab",
+    "collaborative",
+    "editing",
+    "y.js"
+  ],
+  "author": "Yousef Amar <yousef@amar.io> (http://yousefamar.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yousefamar/collab-textarea/issues"
+  },
+  "homepage": "https://github.com/yousefamar/collab-textarea#readme",
+  "devDependencies": {
+    "esbuild": "0.17.0",
+    "y-textarea": "^0.2.5",
+    "y-webrtc": "^10.2.4",
+    "yjs": "^13.5.44"
+  }
+}
