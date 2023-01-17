@@ -1,6 +1,6 @@
 import * as Y from 'yjs'
 import { WebrtcProvider } from 'y-webrtc';
-import { TextAreaBinding } from 'y-textarea'
+import { TextAreaBinding } from 'y-textarea-names'
 
 function getRandomAnimalName() {
   const animalNames = [
@@ -36,13 +36,23 @@ export default class CollabTextArea extends HTMLElement {
     this.$textarea = this.querySelector("textarea");
 
     const ydoc = new Y.Doc();
-    const provider = new WebrtcProvider('quill-lemon-room', ydoc);
+    const provider = window.provider = new WebrtcProvider('quill-lemon-room', ydoc);
     const yTextArea = ydoc.getText('textArea');
-    const binding = new TextAreaBinding(yTextArea, this.$textarea, {
+    this.textAreaBindingOptions = {
       awareness: provider.awareness,
       clientName: getRandomAnimalName(),
       color: getLightColor(),
-    });
+    };
+    const textAreaBinding = window.textAreaBinding = new TextAreaBinding(yTextArea, this.$textarea, this.textAreaBindingOptions);
+  }
+
+  static get observedAttributes() {
+    return ['username'];
+  }
+
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    if (oldVal !== newVal)
+      this.textAreaBindingOptions.clientName = newVal;
   }
 
   get value() {
@@ -51,6 +61,13 @@ export default class CollabTextArea extends HTMLElement {
 
   set value(val) {
     this.$textarea.value = val;
+  }
+
+  get username() {
+    return this.textAreaBindingOptions.clientName;
+  }
+  set username(newVal) {
+    this.textAreaBindingOptions.clientName = newVal;
   }
 }
 

@@ -29,6 +29,7 @@
     "esbuild": "0.17.0",
     "y-textarea": "^0.2.5",
     "y-webrtc": "^10.2.4",
-    "yjs": "^13.5.44"
+    "yjs": "^13.5.44",
+    "y-textarea-names": "0.2.7"
   }
 }
