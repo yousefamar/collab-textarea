@@ -36,7 +36,7 @@ export default class CollabTextArea extends HTMLElement {
     this.$textarea = this.querySelector("textarea");
 
     const ydoc = new Y.Doc();
-    const provider = window.provider = new WebrtcProvider('quill-lemon-room', ydoc);
+    const provider = window.provider = new WebrtcProvider(window.location.origin + window.location.pathname, ydoc);
     const yTextArea = ydoc.getText('textArea');
     this.textAreaBindingOptions = {
       awareness: provider.awareness,
