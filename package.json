@@ -1,6 +1,6 @@
 {
   "name": "collab-textarea",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple Web Component that uses y.js to make a collaboratively editable textareas",
   "source": "src/index.js",
   "main": "dist/index.js",
